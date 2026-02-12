@@ -1,0 +1,34 @@
+.contact {
+  width: max-content;
+  padding: 1vh 0 1vh 0;
+}
+
+input {
+  margin: 1vh;
+}
+
+.email {
+  width: 24rem;
+}
+
+textarea {
+  width: 24rem;
+  height: 15vh;
+  margin: 1vh;
+}
+
+button {
+  margin-bottom: 2vh;
+}
+
+.i-h4 {
+  margin: 1vh auto 1vh 0;
+}
+
+.i-h5 {
+  margin: 1.5vh auto 1.7vh 0;
+}
+
+.i-fp {
+  margin: 1vh auto 1vh 0;
+}

@@ -1,0 +1,7 @@
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
+const PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
+
+export default {
+  SUPABASE_URL,
+  PUBLISHABLE_KEY
+}
