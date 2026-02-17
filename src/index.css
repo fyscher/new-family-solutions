@@ -1,15 +1,16 @@
 :root {
-  --60: #57cc99;
-  --30: #25a18e;
-  --5b: #7ae582;
-  --5a: #22577a;
+  --60: #d7e7ea;
+  --30: #4d8993;
+  --5b: #233e43;
+  --5a: #adffd1;
+  --alert: #cca43b;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: var(--5a);
+  color: var(--30);
   background-color: var(--60);
 
   font-synthesis: none;
@@ -47,7 +48,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: var(--5b);
+  background-color: var(--alert);
   cursor: pointer;
   transition: border-color 0.25s;
 }

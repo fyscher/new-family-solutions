@@ -1,4 +1,5 @@
 import "../static/css/navbar.css";
+import ContactModal from "../components/ContactModal.jsx";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -6,7 +7,7 @@ const Navbar = () => {
     <nav className="nav">
       <ul className="navbar-nav">
         <li className="inquiries-li">
-          <Link to="/contact">Contact</Link>
+          <ContactModal />
         </li>
         <li className="our-members-li">
           <Link to="/about-us">About Us</Link>

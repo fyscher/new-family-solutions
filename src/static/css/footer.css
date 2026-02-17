@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--30);
+  background-color: var(--5a);
   width: 100%;
   height: auto;
   font-size: 0.75rem;
@@ -16,6 +16,10 @@
 .social {
   list-style-type: none;
   padding: 0;
+}
+
+a {
+  color: var(--30);
 }
 
 .footer-logo {
