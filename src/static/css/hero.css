@@ -5,24 +5,19 @@
   background-size: cover;
   display: flex;
   flex-flow: column;
-  font-family: "Rubik Maze", system-ui;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 800;
+  font-style: italic;
   letter-spacing: 0.1em;
-  text-shadow:
-    -1px -1px 1px #111,
-    2px 2px 1px #363636;
   height: 50vh;
 }
 
 h1 {
   margin: 1vh auto auto auto;
   width: fit-content;
-  backdrop-filter: blur(8px);
   border-radius: 0.5rem;
   padding: 0 0.25rem 0.5rem 0.25rem;
   color: white;
-  text-shadow: none;
 }
 
 h2 {
@@ -33,14 +28,14 @@ h2 {
 
 .title-top {
   margin: 2rem auto 0 auto;
-  font-family: "Tomorrow", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 600;
+  font-style: italic;
 }
 
 .title-bottom {
   margin: 1vh auto 1rem auto;
-  font-family: "Tomorrow", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 600;
+  font-style: italic;
 }

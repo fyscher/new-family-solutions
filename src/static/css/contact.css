@@ -1,3 +1,9 @@
+.montserrat-alternates-extrabold-italic {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
 .contact {
   width: max-content;
   padding: 1vh 0 1vh 0;
