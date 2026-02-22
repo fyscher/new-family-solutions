@@ -2,9 +2,9 @@ import "../static/css/hero.css";
 
 const Hero = () => {
   return (
-    <div className="hero-image">
+    <div className="hero-text">
       <h2 className="title-top">Welcome to</h2>
-      <h2 className="title-bottom">New Family Solutions Inc.</h2>
+      <h2 className="title-image" />
       <h1>Supporting families.</h1>
       <h1>Empowering children.</h1>
       <h1>Building brighter futures.</h1>

@@ -4,31 +4,39 @@
   font-style: italic;
 }
 
+.modal-card {
+  width: 95vw;
+  padding: 0;
+}
+
 .contact {
-  width: max-content;
-  padding: 1vh 0 1vh 0;
+  padding: 1rem 0 0 0;
+  margin: 0 auto;
 }
 
 input {
-  margin: 1vh;
-}
-
-.email {
-  width: 24rem;
+  margin: 0.25rem 0;
+  width: 80vw;
 }
 
 textarea {
-  width: 24rem;
-  height: 15vh;
-  margin: 1vh;
+  height: 20vh;
+  margin: 0.25rem 0 0 0;
+  width: 80vw;
 }
 
-button {
-  margin-bottom: 2vh;
+form {
+  background-color: var(--30);
+  width: 90vw;
+  border-radius: 1rem;
+}
+
+.close-button {
+  margin: 0 0 1rem 0;
 }
 
 .i-h4 {
-  margin: 1vh auto 1vh 0;
+  margin: 1vh;
 }
 
 .i-h5 {

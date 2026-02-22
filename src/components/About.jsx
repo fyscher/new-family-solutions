@@ -1,5 +1,3 @@
-import "../static/css/about.css";
-
 const About = () => {
   return (
     <div className="a-text">

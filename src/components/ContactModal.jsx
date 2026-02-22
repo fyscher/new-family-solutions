@@ -62,7 +62,7 @@ const ContactModal = ({ onClose }) => {
             <br />
             <textarea
               required
-              placeholder="Let us know what you want, and we will get back to you in the email provided above shortly!"
+              placeholder="Send us a message, and we will contact you as soon as we are available"
               className="inquiry"
             ></textarea>
             <br />
