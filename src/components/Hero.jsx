@@ -3,9 +3,18 @@ const Hero = () => {
     <div className="hero-text">
       <h2 className="title-top">Welcome to</h2>
       <h2 className="title-image" />
-      <h1>Supporting families.</h1>
-      <h1>Empowering children.</h1>
-      <h1>Building brighter futures.</h1>
+      <div className="highlight">
+        <h1 className="emphasis">Supporting</h1>
+        <h1>families.</h1>
+      </div>
+      <div className="highlight">
+        <h1 className="emphasis">Empowering</h1>
+        <h1>children.</h1>
+      </div>
+      <div className="highlight">
+        <h1>Building brighter</h1>
+        <h1 className="emphasis">futures.</h1>
+      </div>
     </div>
   );
 };

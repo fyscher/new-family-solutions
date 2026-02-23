@@ -3,8 +3,8 @@
   display: flex;
   flex-flow: column;
   text-align: center;
-  font-family: "Funnel Display", sans-serif;
   font-optical-sizing: auto;
+  font-family: "Zain", sans-serif;
   font-weight: 400;
   font-style: normal;
   min-height: 100vh;
