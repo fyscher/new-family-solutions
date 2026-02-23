@@ -6,6 +6,9 @@ const Navbar = () => {
   return (
     <nav className="nav">
       <ul className="navbar-nav">
+        <li className="home">
+          <Link to="/">Home</Link>
+        </li>
         <li className="inquiries-li">
           <ContactModal />
         </li>

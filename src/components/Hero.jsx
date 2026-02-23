@@ -1,5 +1,3 @@
-import "../static/css/hero.css";
-
 const Hero = () => {
   return (
     <div className="hero-text">
