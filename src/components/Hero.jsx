@@ -1,8 +1,6 @@
 const Hero = () => {
   return (
     <div className="hero-text">
-      <h2 className="title-top">Welcome to</h2>
-      <h2 className="title-image" />
       <div className="highlight">
         <h1 className="emphasis">Supporting</h1>
         <h1>families.</h1>

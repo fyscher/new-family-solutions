@@ -5,12 +5,19 @@ import { AnimatePresence, motion } from "framer-motion";
 const ContactModal = ({ onClose }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [childFirstName, setChildFirstName] = useState("");
+  const [childLastName, setChildLastName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [, setContact] = useState(false);
 
   const changeFirst = (e) => setFirstName(e.target.value);
   const changeLast = (e) => setLastName(e.target.value);
+  const changeChildFirst = (e) => setChildFirstName(e.target.value);
+  const changeChildLast = (e) => setChildLastName(e.target.value);
   const changeEmail = (e) => setEmail(e.target.value);
+  const changePhone = (e) => setPhone(e.target.value);
+
   return (
     <motion.div
       className="overlay"
@@ -29,9 +36,16 @@ const ContactModal = ({ onClose }) => {
       >
         <>
           <div className="i-header">
-            <h2>Connect with us</h2>
-            <h4 className="i-h4">
-              Send us a message. We will contact you as soon as we can.
+            <h2>Contact Us</h2>
+            <h3 className="i-h4">We'd love to hear from you.</h3>
+            <h4>
+              Whether you’re looking to inquire about services, make a referral,
+              ask a question, or explore how we can support your child or
+              family, we’re here to help.
+            </h4>
+            <h4>
+              Please reach out using our contact form and a member of our team
+              will respond within 1–2 business days.
             </h4>
           </div>
           <form className="contact">
@@ -44,12 +58,97 @@ const ContactModal = ({ onClose }) => {
               onChange={changeFirst}
             />
             <input
-              placeholder="Last Name (optional)"
+              required
+              placeholder="Last Name"
               type="text"
               className="last"
               value={lastName}
               onChange={changeLast}
             />
+            <br />
+            <input
+              required
+              placeholder="You Child's First Name"
+              type="text"
+              className="first"
+              value={childFirstName}
+              onChange={changeChildFirst}
+            />
+            <input
+              required
+              placeholder="Your Child's Last Name"
+              type="text"
+              className="last"
+              value={childLastName}
+              onChange={changeChildLast}
+            />
+            <br />
+            <textarea
+              required
+              placeholder="How did you hear about us?"
+              className="inquiry"
+            ></textarea>
+            <br />
+            <p>
+              Do you have a Family Supports for Children with Disabilities
+              (FSCD) Agreement in place?
+            </p>
+            <label>
+              <input
+                type="radio"
+                name="FSCD"
+                id="radio-yes"
+                className="radio"
+                value="yes"
+              />
+              Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="FSCD"
+                id="radio-no"
+                className="radio"
+                value="no"
+              />
+              No
+            </label>
+            <br />
+            <p>What program are you interested in?</p>
+            <label>
+              <input
+                type="radio"
+                name="program"
+                id="radio-specialized-services"
+                className="radio"
+                value="specialized-services"
+              />
+              Specialized Services – Our collaborative, multi-disciplinary team
+              works alongside families in the home to support a broad range of
+              needs and skill development.
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="program"
+                id="radio-behavioural-support"
+                className="radio"
+                value="behavioural-support"
+              />
+              Behavioral/Developmental Support – Focused support in one key area
+              of your child’s development to promote growth, confidence, and
+              positive change.
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="program"
+                id="radio-unsure"
+                className="radio"
+                value="unsure"
+              />
+              Unsure, I have questions
+            </label>
             <br />
             <input
               required
@@ -60,12 +159,35 @@ const ContactModal = ({ onClose }) => {
               onChange={changeEmail}
             />
             <br />
-            <textarea
+            <input
               required
-              placeholder="Send us a message, and we will contact you as soon as we are available"
-              className="inquiry"
-            ></textarea>
-            <br />
+              placeholder="Contact Phone"
+              type="phone"
+              className="phone"
+              value={phone}
+              onChange={changePhone}
+            />
+            <p>I prefer to hear back by:</p>
+            <label>
+              <input
+                type="radio"
+                name="contact-method"
+                id="radio-phone"
+                className="radio"
+                value="phone"
+              />
+              Phone
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="contact-method"
+                id="radio-email"
+                className="radio"
+                value="email"
+              />
+              Email
+            </label>
             <button type="submit" onClick={() => setContact(true)}>
               Send
             </button>
