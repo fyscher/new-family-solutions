@@ -1,19 +1,24 @@
+import "../static/css/home.css";
+import Carousel from "./Carousel.jsx";
 const Hero = () => {
   return (
-    <div className="hero-text">
-      <div className="highlight">
-        <h1 className="emphasis">Supporting</h1>
-        <h1>families.</h1>
+    <>
+      <Carousel />
+      <div className="hero-text">
+        <div className="highlight">
+          <h1 className="emphasis">Supporting</h1>
+          <h1>families.</h1>
+        </div>
+        <div className="highlight">
+          <h1 className="emphasis">Empowering</h1>
+          <h1>children.</h1>
+        </div>
+        <div className="highlight">
+          <h1>Building brighter</h1>
+          <h1 className="emphasis">futures.</h1>
+        </div>
       </div>
-      <div className="highlight">
-        <h1 className="emphasis">Empowering</h1>
-        <h1>children.</h1>
-      </div>
-      <div className="highlight">
-        <h1>Building brighter</h1>
-        <h1 className="emphasis">futures.</h1>
-      </div>
-    </div>
+    </>
   );
 };
 

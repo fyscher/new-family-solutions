@@ -1,3 +1,5 @@
+import ContactModal from "../components/ContactModal.jsx";
+
 const About = () => {
   return (
     <div className="a-text">
@@ -11,6 +13,7 @@ const About = () => {
       <h3 className="a-header">
         You are not alone — and we are here to walk this journey with you.
       </h3>
+      <ContactModal />
     </div>
   );
 };
