@@ -3,15 +3,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <>
-      <div className="wave">
-        <div className="wave">
-          <div className="wave"></div>
-        </div>
-      </div>
+    <footer>
+      <p className="footer-tagline">Supporting Alberta families since 2007.</p>
       <div className="footer">
         <ul className="legal">
-          <li className="copyright">© 2025 New Family Solutions</li>
+          <li className="copyright">© 2026 New Family Solutions</li>
           <li>
             <Link to="/">Privacy Policy</Link>
           </li>
@@ -27,14 +23,11 @@ const Footer = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
             <Link to="/about-us">About Us</Link>
           </li>
         </ul>
       </div>
-    </>
+    </footer>
   );
 };
 

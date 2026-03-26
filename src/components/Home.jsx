@@ -1,15 +1,19 @@
 import Hero from "./Hero.jsx";
 import About from "./About.jsx";
-import "../static/css/home.css";
+import Services from "./Services.jsx";
+import HowItWorks from "./HowItWorks.jsx";
+import TrustStrip from "./TrustStrip.jsx";
+import "../static/css/sections.css";
 
 const Home = () => {
   return (
-    <div className="main">
-      <div className="text">
-        <Hero />
-        <About />
-      </div>
-    </div>
+    <main className="home-page">
+      <Hero />
+      <Services />
+      <HowItWorks />
+      <About />
+      <TrustStrip />
+    </main>
   );
 };
 

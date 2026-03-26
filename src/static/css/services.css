@@ -1,0 +1,75 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  border-top: 4px solid var(--30);
+  text-align: left;
+  box-shadow: 0 2px 12px rgba(35, 62, 67, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.service-card:hover {
+  box-shadow: 0 6px 24px rgba(35, 62, 67, 0.14);
+  transform: translateY(-3px);
+}
+
+.service-card__icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.service-card__tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-color: var(--5a);
+  color: var(--5b);
+  border-radius: 2rem;
+  padding: 0.2rem 0.75rem;
+  margin-bottom: 0.75rem;
+  font-family: "Zain", sans-serif;
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  color: var(--5b);
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  font-family: "Zain", sans-serif;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #5b5b5b;
+  line-height: 1.7;
+  margin: 0;
+  font-family: "Zain", sans-serif;
+}
+
+.services-cta {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.services-cta p {
+  font-size: 0.9rem;
+  color: var(--30);
+  margin-bottom: 0.75rem;
+  font-family: "Zain", sans-serif;
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}

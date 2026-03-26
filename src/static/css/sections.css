@@ -1,0 +1,151 @@
+.section {
+  width: 100%;
+  padding: 4rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.section--light {
+  background-color: var(--60);
+}
+
+.section--tinted {
+  background-color: #c6dde1;
+}
+
+.section--dark {
+  background-color: var(--5b);
+  color: white;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--30);
+  margin-bottom: 0.5rem;
+  font-family: "Zain", sans-serif;
+  display: block;
+}
+
+.section-heading {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  color: var(--5b);
+  margin: 0 0 0.75rem;
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+  text-align: inherit;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: var(--30);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+/* ── HowItWorks steps ── */
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.step__number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--5a);
+  font-family: "Zain", sans-serif;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 3rem;
+}
+
+.step__content h3 {
+  font-size: 1.1rem;
+  color: var(--5b);
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+  font-family: "Zain", sans-serif;
+}
+
+.step__content p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #5b5b5b;
+  margin: 0;
+}
+
+/* ── TrustStrip ── */
+
+.trust-strip {
+  background-color: var(--5b);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 1.5rem;
+}
+
+.trust-item {
+  text-align: center;
+}
+
+.trust-item__number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--5a);
+  font-family: "Zain", sans-serif;
+  display: block;
+  line-height: 1;
+}
+
+.trust-item__label {
+  font-size: 0.85rem;
+  color: rgba(215, 231, 234, 0.8);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 6rem 8vw;
+  }
+
+  .section-heading {
+    font-size: 2.4rem;
+  }
+
+  .steps-list {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .step {
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .step__number {
+    font-size: 3rem;
+  }
+
+  .trust-strip {
+    flex-direction: row;
+    justify-content: center;
+    gap: 6rem;
+    padding: 4rem 8vw;
+  }
+}

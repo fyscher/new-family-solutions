@@ -1,189 +1,58 @@
 .nav {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  gap: 2rem;
-  position: absolute;
-}
-
-.glass-svg-filter {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: 4rem;
-}
-
-.container--inline {
-  flex-direction: row;
-  flex-shrink: 0;
-  width: auto;
-}
-
-.glass-container {
-  position: relative;
-  display: flex;
-  font-weight: 600;
-  color: var(--lg-text);
-  cursor: pointer;
-  background: transparent;
-  border-radius: 2rem;
-  overflow: hidden;
-  box-shadow:
-    0 6px 6px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
-}
-
-.glass-container--large {
-  min-width: 0;
-}
-
-.glass-filter {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  backdrop-filter: blur(0px);
-  filter: url(#lg-dist);
-  isolation: isolate;
-}
-
-.glass-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: var(--lg-bg-color);
-}
-
-.glass-specular {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  border-radius: inherit;
-  overflow: hidden;
-  box-shadow:
-    inset 1px 1px 0 var(--lg-highlight),
-    inset 0 0 5px var(--lg-highlight);
-}
-
-.glass-content {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.glass-content--inline {
-  flex: 1 1 auto;
   justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: transparent;
 }
 
-.glass-content a {
-  display: inline-block;
-  position: relative;
-  border-radius: 1.2rem;
-}
-
-.glass-content a img {
-  display: block;
-  width: 75px;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
-}
-
-.glass-content a img:hover {
-  transform: scale(0.95);
-}
-
-.title-image {
-  display: flex;
-  flex-flow: column;
-  flex-shrink: 0;
-  margin: 0;
+.nav-logo {
   background-image: url("../images/logo-no-background_new.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border-radius: 1rem;
   height: 5vh;
-  width: 160px;
-  z-index: 10;
-}
-
-.logo:hover {
-  background-color: var(--30);
-  border-radius: 3rem;
-  cursor: pointer;
+  min-height: 40px;
+  width: 140px;
+  flex-shrink: 0;
 }
 
 .navbar-nav {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  width: auto;
-  height: 3rem;
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
-  backdrop-filter: blur(1px);
-  border-radius: 2rem;
-}
-
-.navbar-nav li {
-  display: flex;
-  align-items: center;
-  margin: 0 0.5rem;
-  width: auto;
-  padding: 0 0.5rem;
-  height: 100%;
+  gap: 1.5rem;
 }
 
 .navbar-nav a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
-  white-space: nowrap;
+  font-family: "Zain", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.2s ease;
 }
 
-#user-li {
-  margin-right: auto;
-  margin-left: 1rem;
-  cursor: default;
+.navbar-nav a:hover {
+  opacity: 0.8;
 }
 
-#user-li:hover {
-  background-color: var(--30);
-}
+@media (min-width: 1024px) {
+  .nav {
+    padding: 1.25rem 4rem;
+  }
 
-.inquiries-li:hover {
-  border-radius: 3rem;
-}
-
-.gallery-li:hover {
-  border-radius: 3rem;
-}
-
-.login-li:hover {
-  border-top-left-radius: 3rem;
-  border-bottom-left-radius: 3rem;
-}
-
-@media only screen and (min-width: 1024px) {
-  .title-image {
-    width: 30vw;
-    height: 15vh;
+  .nav-logo {
+    width: 200px;
+    height: 7vh;
   }
 }

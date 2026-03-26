@@ -1,0 +1,166 @@
+.about-us-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Banner ── */
+
+.about-us-banner {
+  background: linear-gradient(160deg, var(--5b) 0%, var(--30) 100%);
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+  color: white;
+}
+
+.about-us-banner h1 {
+  font-size: 2.2rem;
+  color: white;
+  margin: 0 0 0.75rem;
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+}
+
+.about-us-banner p {
+  font-size: 1.05rem;
+  color: rgba(215, 231, 234, 0.9);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: "Zain", sans-serif;
+}
+
+/* ── Founder ── */
+
+.founder-section {
+  background-color: var(--60);
+  padding: 4rem 1.5rem;
+  text-align: left;
+}
+
+.founder-role {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--30);
+  margin: 0.25rem 0 1.5rem;
+  font-family: "Zain", sans-serif;
+}
+
+.founder-body p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--5b);
+  max-width: 680px;
+  margin: 0 0 1rem;
+  font-family: "Zain", sans-serif;
+}
+
+.founder-attribution {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--30);
+  margin-top: 1rem;
+  font-family: "Zain", sans-serif;
+}
+
+/* ── Mission ── */
+
+.mission-section {
+  background-color: #c6dde1;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.mission-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--5b);
+  max-width: 620px;
+  margin: 0 auto;
+  font-family: "Zain", sans-serif;
+}
+
+/* ── Values ── */
+
+.values-section {
+  background-color: var(--60);
+  padding: 4rem 1.5rem;
+  text-align: left;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.value-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.75rem;
+  border-left: 4px solid var(--30);
+  text-align: left;
+}
+
+.value-card h3 {
+  font-size: 1rem;
+  color: var(--5b);
+  margin: 0 0 0.5rem;
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+}
+
+.value-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #5b5b5b;
+  margin: 0;
+  font-family: "Zain", sans-serif;
+}
+
+/* ── CTA ── */
+
+.about-us-cta {
+  background-color: var(--30);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.about-us-cta h3 {
+  font-size: 1.6rem;
+  color: white;
+  margin: 0 0 0.5rem;
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+}
+
+.about-us-cta p {
+  font-size: 0.95rem;
+  color: rgba(215, 231, 234, 0.9);
+  margin: 0 0 1.5rem;
+  font-family: "Zain", sans-serif;
+}
+
+/* ── Responsive ── */
+
+@media (min-width: 1024px) {
+  .about-us-banner {
+    padding: 10rem 8vw 5rem;
+  }
+
+  .about-us-banner h1 {
+    font-size: 3rem;
+  }
+
+  .founder-section,
+  .mission-section,
+  .values-section,
+  .about-us-cta {
+    padding: 6rem 8vw;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

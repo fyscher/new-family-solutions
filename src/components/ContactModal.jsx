@@ -202,7 +202,7 @@ const ContactModal = ({ onClose }) => {
   );
 };
 
-const ModalWrapper = () => {
+const ModalWrapper = ({ buttonLabel = "Contact" }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="modal-wrapper">
@@ -212,7 +212,7 @@ const ModalWrapper = () => {
           setIsOpen(true);
         }}
       >
-        Contact
+        {buttonLabel}
       </button>
       <AnimatePresence mode="wait">
         {isOpen && (
