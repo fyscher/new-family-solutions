@@ -1,63 +1,272 @@
-.montserrat-alternates-extrabold-italic {
-  font-family: "Montserrat Alternates", sans-serif;
-  font-weight: 800;
-  font-style: italic;
+/* ── Modal overlay ── */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(35, 62, 67, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
+/* ── Modal card ── */
 .modal-card {
-  width: 95vw;
-  padding: 0;
-}
-
-.contact {
-  padding: 1rem 0 0 0;
-  margin: 0 auto;
-}
-
-input {
-  margin: 0.25rem 0;
-  width: 80vw;
-}
-
-textarea {
-  height: 20vh;
-  margin: 0.25rem 0 0 0;
-  width: 80vw;
-}
-
-form {
-  background-color: var(--30);
-  width: 90vw;
+  position: relative;
+  background: white;
   border-radius: 1rem;
+  width: 95vw;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 0;
+  box-shadow: 0 20px 60px rgba(35, 62, 67, 0.25);
 }
 
-.close-button {
-  margin: 0 0 1rem 0;
+/* ── Modal header ── */
+.modal-header {
+  background: linear-gradient(160deg, var(--5b) 0%, var(--30) 100%);
+  padding: 2rem 2rem 1.5rem;
+  position: relative;
 }
 
-.i-h4 {
-  margin: 1vh;
+.modal-header h2 {
+  font-family: "Zain", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem;
 }
 
-.i-h5 {
-  margin: 1.5vh auto 1.7vh 0;
+.modal-header p {
+  font-family: "Zain", sans-serif;
+  font-size: 0.9rem;
+  color: rgba(215, 231, 234, 0.88);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 480px;
 }
 
-.i-fp {
-  margin: 1vh auto 1vh 0;
+/* ── Close button ── */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background 0.2s;
 }
 
-@media only screen and (min-width: 1024px) {
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ── Form body ── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 1.75rem 2rem 2rem;
+}
+
+/* ── Form row (side-by-side fields) ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* ── Form group (label + input) ── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* ── Label ── */
+.form-label {
+  font-family: "Zain", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--5b);
+}
+
+.form-label .required {
+  color: var(--30);
+  margin-left: 0.2rem;
+}
+
+/* ── Text inputs ── */
+.form-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #d0dfe2;
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  font-family: "Zain", sans-serif;
+  font-size: 0.95rem;
+  color: var(--5b);
+  background: white;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input::placeholder {
+  color: #a8bfc3;
+}
+
+.form-input:focus {
+  border-color: var(--30);
+  box-shadow: 0 0 0 3px rgba(77, 137, 147, 0.14);
+}
+
+/* ── Radio card options (program selection) ── */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #d0dfe2;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-align: left;
+}
+
+.radio-option:has(input:checked) {
+  border-color: var(--30);
+  background: rgba(77, 137, 147, 0.06);
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid #c8d8db;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.radio-option:has(input:checked) .radio-dot {
+  border-color: var(--30);
+  background: var(--30);
+}
+
+.radio-option-label {
+  font-family: "Zain", sans-serif;
+  font-size: 0.9rem;
+  color: var(--5b);
+  line-height: 1.55;
+}
+
+.radio-option-label strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+/* ── Radio pills (Yes/No, Phone/Email) ── */
+.radio-pills {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.radio-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid #d0dfe2;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-family: "Zain", sans-serif;
+  font-size: 0.9rem;
+  color: var(--5b);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.radio-pill input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-pill:has(input:checked) {
+  border-color: var(--30);
+  background: var(--30);
+  color: white;
+}
+
+/* ── Submit button ── */
+.form-submit {
+  width: 100%;
+  background: var(--5a);
+  color: var(--5b);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.9rem;
+  font-family: "Zain", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 0.25rem;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(35, 62, 67, 0.15);
+}
+
+/* ── Responsive ── */
+@media (max-width: 520px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
+
+  .modal-header {
+    padding: 1.75rem 1.25rem 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .modal-card {
-    width: 65vw;
-  }
-  input {
-    width: 55vw;
-  }
-  textarea {
-    width: 55vw;
-  }
-  form {
-    width: 60vw;
+    max-width: 680px;
   }
 }
