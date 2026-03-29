@@ -9,7 +9,7 @@
 }
 
 .section--tinted {
-  background-color: #c6dde1;
+  background-color: var(--60-tinted);
 }
 
 .section--dark {
@@ -69,6 +69,7 @@
   line-height: 1;
   flex-shrink: 0;
   width: 3rem;
+  -webkit-text-stroke: 1px var(--30);
 }
 
 .step__content h3 {

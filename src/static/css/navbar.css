@@ -10,17 +10,25 @@
   left: 0;
   z-index: 100;
   background: transparent;
+  transition: transform 0.3s ease;
+}
+
+.nav--hidden {
+  transform: translateY(-100%);
 }
 
 .nav-logo {
-  background-image: url("../images/logo-no-background_new.png");
+  background-image: url("../images/logo-hires.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 5vh;
-  min-height: 40px;
-  width: 140px;
+  height: 6vh;
+  min-height: 50px;
+  width: 175px;
   flex-shrink: 0;
+  border-radius: 10px;
+  padding: 8px 14px;
+  box-sizing: content-box;
 }
 
 .navbar-nav {
@@ -48,11 +56,11 @@
 
 @media (min-width: 1024px) {
   .nav {
-    padding: 1.25rem 4rem;
+    padding: 1.25rem 4rem 1.25rem 2rem;
   }
 
   .nav-logo {
-    width: 200px;
-    height: 7vh;
+    width: 240px;
+    height: 8vh;
   }
 }

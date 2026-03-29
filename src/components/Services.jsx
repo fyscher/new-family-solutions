@@ -5,7 +5,11 @@ import { motion } from "motion/react";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
 };
 
 const containerVariants = {
@@ -15,7 +19,11 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
 };
 
 const Services = () => (
@@ -28,7 +36,9 @@ const Services = () => (
     variants={sectionVariants}
   >
     <span className="section-label">What we offer</span>
-    <h2 className="section-heading">Support that fits your family&apos;s needs</h2>
+    <h2 className="section-heading">
+      Support that fits your family&apos;s needs
+    </h2>
     <p className="section-sub">
       Every family&apos;s journey is different. We offer two paths of support —
       choose what feels right, or ask us to help you decide.
@@ -46,9 +56,9 @@ const Services = () => (
         <span className="service-card__tag">Comprehensive support</span>
         <h3>Specialized Services</h3>
         <p>
-          A collaborative, multi-disciplinary team works alongside your family
-          — in your home — supporting communication, daily living, social
-          skills, and more, all coordinated in one place.
+          A collaborative, multi-disciplinary team works alongside your family —
+          in your home — supporting communication, daily living, social skills,
+          behvaioral challenges, and more, all coordinated in one place.
         </p>
       </motion.div>
 
@@ -57,9 +67,9 @@ const Services = () => (
         <span className="service-card__tag">Focused support</span>
         <h3>Behavioural &amp; Developmental Support</h3>
         <p>
-          Focused, one-area support designed to help your child build
-          confidence, develop new skills, and make meaningful progress — at a
-          pace that works for them.
+          Focused, individualized support to help your child manage behavioral
+          challenges, build confidence, and develop new skills- moving forward
+          in a way that fits your family’s needs.
         </p>
       </motion.div>
     </motion.div>

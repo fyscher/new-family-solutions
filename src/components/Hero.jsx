@@ -27,8 +27,8 @@ const Hero = () => (
         <h1 className="emphasis">futures.</h1>
       </div>
       <p className="hero-sub">
-        Compassionate, personalised support for families navigating life with
-        an autistic child — at your pace, on your terms.
+        Individualized, family-centred support for those navigating life with a
+        child of diverse abilities—at your pace, on your terms.
       </p>
       <a href="#services">
         <button className="hero-cta">Explore at your pace</button>
