@@ -46,7 +46,6 @@ const ContactModal = ({ onClose }) => {
 
         {/* Form */}
         <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-
           {/* Your Name */}
           <div className="form-group">
             <span className="form-label">
@@ -179,9 +178,8 @@ const ContactModal = ({ onClose }) => {
                 <span className="radio-dot" />
                 <span className="radio-option-label">
                   <strong>Behavioral / Developmental Support</strong>
-                  Focused support in one key area of your child&apos;s
-                  development to promote growth, confidence, and positive
-                  change.
+                  Focused support to help your child develop positive behaviors,
+                  build confidence, and make meaningful change.
                 </span>
               </label>
               <label className="radio-option">
@@ -273,9 +271,7 @@ const ModalWrapper = ({ buttonLabel = "Contact" }) => {
         {buttonLabel}
       </button>
       <AnimatePresence mode="wait">
-        {isOpen && (
-          <ContactModal onClose={() => setIsOpen(false)} />
-        )}
+        {isOpen && <ContactModal onClose={() => setIsOpen(false)} />}
       </AnimatePresence>
     </div>
   );

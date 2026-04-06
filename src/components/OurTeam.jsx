@@ -5,7 +5,11 @@ import { motion } from "motion/react";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
 };
 
 const containerVariants = {
@@ -15,7 +19,11 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 14 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
 };
 
 const clinicians = [
@@ -40,9 +48,14 @@ const clinicians = [
     body: "Our Physiotherapists address gross motor challenges — from sitting and walking to running, jumping, and balance. They work with families to improve muscle tone, coordination, and physical confidence in a way that feels purposeful and fun. Whether it's learning to ride a bike, swimming, throwing a ball, or simply keeping up at the playground, our PTs help children move through the world with greater ease and joy.",
   },
   {
-    role: "Psychology",
-    title: "Psychologist",
-    body: "The NFS Psychologist is a core member of our collaborative, multidisciplinary team. Working directly with parents and caregivers, they educate and empower families to understand their child's emotional, social, behavioral, cognitive, and learning profile. With that clarity, the psychologist helps identify the child's unique strengths and needs — then supports the development, implementation, and monitoring of concrete, functional strategies. Self-advocacy for both parent and child is woven into every program. When needed, our psychologist also liaises with community services to ensure continuity of support.",
+    role: "Coordination",
+    title: "Program Coordinator",
+    body: "The Program Coordinator is the central leader in your child’s support journey, guiding families through the intake process, liaising with FSCD, and coordinating the entire team. They oversee your child’s program plan, provide strategic guidance to clinicians and parents, prepare essential reports, and ensure smooth collaboration between families, FSCD, and other professionals—delivering seamless, family-centered support every step of the way.",
+  },
+  {
+    role: "Speech & Language",
+    title: "Speech-Language Pathology Assistant",
+    body: "SLP-Assistants work closely with a Speech-Language Pathologist to provide focused, hands-on support in key communication areas. They reinforce therapy goals through structured, engaging activities, helping children build real-world skills and confidence while supporting success in everyday life. SLP-Assistants are involved on a short-term, as-needed basis to provide extra support when it’s most helpful for your child and family.",
   },
 ];
 
@@ -78,7 +91,11 @@ const OurTeam = () => {
           viewport={{ once: true, amount: 0.05 }}
         >
           {clinicians.map((c) => (
-            <motion.div key={c.title} className="team-card" variants={itemVariants}>
+            <motion.div
+              key={c.title}
+              className="team-card"
+              variants={itemVariants}
+            >
               <span className="team-card__role">{c.role}</span>
               <h2>{c.title}</h2>
               <p>{c.body}</p>
