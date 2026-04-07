@@ -42,12 +42,12 @@
   margin: 0 0 0.5rem;
 }
 
-.modal-header p {
+.modal-card .modal-header p {
   font-family: "Zain", sans-serif;
   font-size: 0.9rem;
   color: white;
   line-height: 1.65;
-  margin: 0;
+  margin: 0 auto 0 auto;
   max-width: 480px;
 }
 

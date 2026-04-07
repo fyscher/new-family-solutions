@@ -157,7 +157,7 @@
 .about-us-cta p {
   font-size: 0.95rem;
   color: rgba(215, 231, 234, 0.9);
-  margin: 0 0 1.5rem;
+  margin: 0 auto 1.5rem auto;
   font-family: "Zain", sans-serif;
 }
 

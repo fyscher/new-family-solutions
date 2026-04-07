@@ -35,7 +35,7 @@ const clinicians = [
   {
     role: "Behavior",
     title: "Behavioral Consultant",
-    body: "Our Behavioral Consultants work alongside parents and caregivers to build a deeper understanding of how behavior actually works. Their focus isn't on \"fixing\" the child — it's on equipping the adults around them with insight and practical tools. When caregivers learn to recognize and manage their own emotional responses, meaningful change in the child's behavior follows naturally. It's a collaborative, empowering approach rooted in compassion.",
+    body: "Our Behavioral Consultants work alongside parents and caregivers to build a deeper understanding of how behavior actually works. Their focus isn't on \"fixing\" the child — it's on equipping the adults around them with insight and practical tools. When caregivers learn to recognize and manage their own emotional responses, meaningful change in the child's behavior naturally follows, making this a collaborative and empowering approach.",
   },
   {
     role: "Occupational Therapy",

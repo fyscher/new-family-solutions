@@ -34,7 +34,7 @@ const steps = [
   {
     number: "2",
     heading: "Initial Consultation",
-    body: "A gentle, no-pressure conversation to understand your family's situation, your child's strengths, and what kind of support you're looking for.",
+    body: "A thoughtful conversation to understand your family's situation, your child's strengths, and what kind of support you’re looking for.",
   },
   {
     number: "3",
