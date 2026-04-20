@@ -1,3 +1,25 @@
+/* ── Form success / error states ── */
+.form-success {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.form-success p {
+  font-size: 1rem;
+  color: #3d6b72;
+  line-height: 1.6;
+}
+
+.form-error {
+  color: #b94040;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
 /* ── Modal overlay ── */
 .overlay {
   position: fixed;

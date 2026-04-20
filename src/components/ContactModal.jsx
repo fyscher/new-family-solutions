@@ -13,6 +13,41 @@ const ContactModal = ({ onClose }) => {
   const [fscd, setFscd] = useState("");
   const [program, setProgram] = useState("");
   const [contactMethod, setContactMethod] = useState("");
+  const [botField, setBotField] = useState("");
+  const [submitStatus, setSubmitStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/mail.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          childFirstName,
+          childLastName,
+          howHeard,
+          fscd,
+          program,
+          phone,
+          email,
+          contactMethod,
+          botField,
+        }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || `${res.status}`);
+      setSubmitStatus("success");
+    } catch (err) {
+      setErrorMessage(err.message || "Something went wrong. Please try again or contact us directly.");
+      setSubmitStatus("error");
+    }
+  };
 
   return (
     <motion.div
@@ -45,219 +80,260 @@ const ContactModal = ({ onClose }) => {
         </div>
 
         {/* Form */}
-        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-          {/* Your Name */}
-          <div className="form-group">
-            <span className="form-label">
-              Your Name <span className="required">*</span>
-            </span>
-            <div className="form-row">
-              <div className="form-group">
-                <input
-                  required
-                  className="form-input"
-                  type="text"
-                  placeholder="First name"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  required
-                  className="form-input"
-                  type="text"
-                  placeholder="Last name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </div>
-            </div>
+        {submitStatus === "success" ? (
+          <div className="form-success">
+            <p>
+              Thank you! Your message has been received. A member of our team
+              will be in touch within <strong>1–2 business days</strong>.
+            </p>
+            <button className="form-submit" onClick={onClose}>
+              Close
+            </button>
           </div>
-
-          {/* Child's Name */}
-          <div className="form-group">
-            <span className="form-label">Your Child&apos;s Name</span>
-            <div className="form-row">
-              <div className="form-group">
-                <input
-                  className="form-input"
-                  type="text"
-                  placeholder="First name"
-                  value={childFirstName}
-                  onChange={(e) => setChildFirstName(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  className="form-input"
-                  type="text"
-                  placeholder="Last name"
-                  value={childLastName}
-                  onChange={(e) => setChildLastName(e.target.value)}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* How did you hear */}
-          <div className="form-group">
-            <label className="form-label" htmlFor="how-heard">
-              How did you hear about us?
-            </label>
+        ) : (
+          <form className="contact-form" onSubmit={handleSubmit}>
+            {/* Honeypot — hidden from users, catches bots */}
             <input
-              id="how-heard"
-              className="form-input"
               type="text"
-              placeholder="e.g. Google, a friend, FSCD worker..."
-              value={howHeard}
-              onChange={(e) => setHowHeard(e.target.value)}
+              name="botField"
+              value={botField}
+              onChange={(e) => setBotField(e.target.value)}
+              style={{ display: "none" }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
             />
-          </div>
 
-          {/* FSCD */}
-          <div className="form-group">
-            <span className="form-label">
-              Do you have a Family Supports for Children with Disabilities
-              (FSCD) Agreement in place?
-            </span>
-            <div className="radio-pills">
-              <label className="radio-pill">
-                <input
-                  type="radio"
-                  name="fscd"
-                  value="yes"
-                  checked={fscd === "yes"}
-                  onChange={() => setFscd("yes")}
-                />
-                Yes
-              </label>
-              <label className="radio-pill">
-                <input
-                  type="radio"
-                  name="fscd"
-                  value="no"
-                  checked={fscd === "no"}
-                  onChange={() => setFscd("no")}
-                />
-                No
-              </label>
-            </div>
-          </div>
-
-          {/* Program */}
-          <div className="form-group">
-            <span className="form-label">
-              Which program are you interested in?
-            </span>
-            <div className="radio-group">
-              <label className="radio-option">
-                <input
-                  type="radio"
-                  name="program"
-                  value="specialized-services"
-                  checked={program === "specialized-services"}
-                  onChange={() => setProgram("specialized-services")}
-                />
-                <span className="radio-dot" />
-                <span className="radio-option-label">
-                  <strong>Specialized Services</strong>
-                  Our collaborative, multi-disciplinary team works alongside
-                  families in the home to support a broad range of needs and
-                  skill development.
-                </span>
-              </label>
-              <label className="radio-option">
-                <input
-                  type="radio"
-                  name="program"
-                  value="behavioural-support"
-                  checked={program === "behavioural-support"}
-                  onChange={() => setProgram("behavioural-support")}
-                />
-                <span className="radio-dot" />
-                <span className="radio-option-label">
-                  <strong>Behavioral / Developmental Support</strong>
-                  Focused support to help your child develop positive behaviors,
-                  build confidence, and make meaningful change.
-                </span>
-              </label>
-              <label className="radio-option">
-                <input
-                  type="radio"
-                  name="program"
-                  value="unsure"
-                  checked={program === "unsure"}
-                  onChange={() => setProgram("unsure")}
-                />
-                <span className="radio-dot" />
-                <span className="radio-option-label">
-                  I&apos;m not sure — I have questions
-                </span>
-              </label>
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div className="form-group">
-            <span className="form-label">
-              Contact Information <span className="required">*</span>
-            </span>
-            <div className="form-row">
-              <div className="form-group">
-                <input
-                  required
-                  className="form-input"
-                  type="tel"
-                  placeholder="Phone number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  required
-                  className="form-input"
-                  type="email"
-                  placeholder="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+            {/* Your Name */}
+            <div className="form-group">
+              <span className="form-label">
+                Your Name <span className="required">*</span>
+              </span>
+              <div className="form-row">
+                <div className="form-group">
+                  <input
+                    required
+                    name="firstName"
+                    className="form-input"
+                    type="text"
+                    placeholder="First name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    required
+                    name="lastName"
+                    className="form-input"
+                    type="text"
+                    placeholder="Last name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Preferred contact method */}
-          <div className="form-group">
-            <span className="form-label">I prefer to hear back by:</span>
-            <div className="radio-pills">
-              <label className="radio-pill">
-                <input
-                  type="radio"
-                  name="contact-method"
-                  value="phone"
-                  checked={contactMethod === "phone"}
-                  onChange={() => setContactMethod("phone")}
-                />
-                Phone
-              </label>
-              <label className="radio-pill">
-                <input
-                  type="radio"
-                  name="contact-method"
-                  value="email"
-                  checked={contactMethod === "email"}
-                  onChange={() => setContactMethod("email")}
-                />
-                Email
-              </label>
+            {/* Child's Name */}
+            <div className="form-group">
+              <span className="form-label">Your Child&apos;s Name</span>
+              <div className="form-row">
+                <div className="form-group">
+                  <input
+                    name="childFirstName"
+                    className="form-input"
+                    type="text"
+                    placeholder="First name"
+                    value={childFirstName}
+                    onChange={(e) => setChildFirstName(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    name="childLastName"
+                    className="form-input"
+                    type="text"
+                    placeholder="Last name"
+                    value={childLastName}
+                    onChange={(e) => setChildLastName(e.target.value)}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
 
-          <button type="submit" className="form-submit">
-            Send Message
-          </button>
-        </form>
+            {/* How did you hear */}
+            <div className="form-group">
+              <label className="form-label" htmlFor="how-heard">
+                How did you hear about us?
+              </label>
+              <input
+                id="how-heard"
+                name="howHeard"
+                className="form-input"
+                type="text"
+                placeholder="e.g. Google, a friend, FSCD worker..."
+                value={howHeard}
+                onChange={(e) => setHowHeard(e.target.value)}
+              />
+            </div>
+
+            {/* FSCD */}
+            <div className="form-group">
+              <span className="form-label">
+                Do you have a Family Supports for Children with Disabilities
+                (FSCD) Agreement in place?
+              </span>
+              <div className="radio-pills">
+                <label className="radio-pill">
+                  <input
+                    type="radio"
+                    name="fscd"
+                    value="yes"
+                    checked={fscd === "yes"}
+                    onChange={() => setFscd("yes")}
+                  />
+                  Yes
+                </label>
+                <label className="radio-pill">
+                  <input
+                    type="radio"
+                    name="fscd"
+                    value="no"
+                    checked={fscd === "no"}
+                    onChange={() => setFscd("no")}
+                  />
+                  No
+                </label>
+              </div>
+            </div>
+
+            {/* Program */}
+            <div className="form-group">
+              <span className="form-label">
+                Which program are you interested in?
+              </span>
+              <div className="radio-group">
+                <label className="radio-option">
+                  <input
+                    type="radio"
+                    name="program"
+                    value="specialized-services"
+                    checked={program === "specialized-services"}
+                    onChange={() => setProgram("specialized-services")}
+                  />
+                  <span className="radio-dot" />
+                  <span className="radio-option-label">
+                    <strong>Specialized Services</strong>
+                    Our collaborative, multi-disciplinary team works alongside
+                    families in the home to support a broad range of needs and
+                    skill development.
+                  </span>
+                </label>
+                <label className="radio-option">
+                  <input
+                    type="radio"
+                    name="program"
+                    value="behavioural-support"
+                    checked={program === "behavioural-support"}
+                    onChange={() => setProgram("behavioural-support")}
+                  />
+                  <span className="radio-dot" />
+                  <span className="radio-option-label">
+                    <strong>Behavioral / Developmental Support</strong>
+                    Focused support to help your child develop positive behaviors,
+                    build confidence, and make meaningful change.
+                  </span>
+                </label>
+                <label className="radio-option">
+                  <input
+                    type="radio"
+                    name="program"
+                    value="unsure"
+                    checked={program === "unsure"}
+                    onChange={() => setProgram("unsure")}
+                  />
+                  <span className="radio-dot" />
+                  <span className="radio-option-label">
+                    I&apos;m not sure — I have questions
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="form-group">
+              <span className="form-label">
+                Contact Information <span className="required">*</span>
+              </span>
+              <div className="form-row">
+                <div className="form-group">
+                  <input
+                    required
+                    name="phone"
+                    className="form-input"
+                    type="tel"
+                    placeholder="Phone number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    required
+                    name="email"
+                    className="form-input"
+                    type="email"
+                    placeholder="Email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Preferred contact method */}
+            <div className="form-group">
+              <span className="form-label">I prefer to hear back by:</span>
+              <div className="radio-pills">
+                <label className="radio-pill">
+                  <input
+                    type="radio"
+                    name="contactMethod"
+                    value="phone"
+                    checked={contactMethod === "phone"}
+                    onChange={() => setContactMethod("phone")}
+                  />
+                  Phone
+                </label>
+                <label className="radio-pill">
+                  <input
+                    type="radio"
+                    name="contactMethod"
+                    value="email"
+                    checked={contactMethod === "email"}
+                    onChange={() => setContactMethod("email")}
+                  />
+                  Email
+                </label>
+              </div>
+            </div>
+
+            {submitStatus === "error" && (
+              <p className="form-error" role="alert">
+                {errorMessage}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="form-submit"
+              disabled={submitStatus === "submitting"}
+            >
+              {submitStatus === "submitting" ? "Sending…" : "Send Message"}
+            </button>
+          </form>
+        )}
       </motion.div>
     </motion.div>
   );

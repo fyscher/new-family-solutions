@@ -68,10 +68,7 @@ const AboutUs = () => {
       >
         <span className="section-label">Meet the Founder</span>
         <h2 className="section-heading">Susan Johanson</h2>
-        <p className="founder-role">
-          Founder &amp; Director — Bachelor of Community Rehabilitation,
-          University of Calgary
-        </p>
+        <p className="founder-role">Founder &amp; Director</p>
         <div className="founder-content">
           <img
             src={founderPhoto}
@@ -81,25 +78,26 @@ const AboutUs = () => {
           <div className="founder-text">
             <div className="founder-body">
               <p>
-                My journey began with a deep passion for supporting children with
-                disabilities and the families who love them. Through hands-on
-                experience, I saw how powerful early and compassionate support could
-                be — but I also witnessed how many families struggled to access the
-                care their children truly needed. I wanted to do more. I wanted to
-                create something personal, respectful, and genuinely supportive —
-                not only for the child, but for the entire family.
+                My journey began with a deep passion for supporting children
+                with disabilities and the families who love them. Through
+                hands-on experience, I saw how powerful early and compassionate
+                support could be — but I also witnessed how many families
+                struggled to access the care their children truly needed. I
+                wanted to do more. I wanted to create something personal,
+                respectful, and genuinely supportive — not only for the child,
+                but for the entire family.
               </p>
               <p>
-                In 2007, I took a leap of faith and founded New Family Solutions so
-                I could serve families in a deeper, more meaningful way. What began
-                as a small vision has grown into a company built on trust, empathy,
-                and dedication. Every child and family we work with reminds me why I
-                started. New Family Solutions is not just a business — it is my
-                heart, my purpose, and my promise to keep showing up for the
-                families who need support the most.
+                In 2007, I took a leap of faith and founded New Family Solutions
+                so I could serve families in a deeper, more meaningful way. What
+                began as a small vision has grown into a company built on trust,
+                empathy, and dedication. Every child and family we work with
+                reminds me why I started. New Family Solutions is not just a
+                business — it is my heart, my purpose, and my promise to keep
+                showing up for the families who need support the most.
               </p>
             </div>
-            <p className="founder-attribution">— Susan Johanson</p>
+            <p className="founder-attribution">— Susan Johanson, RCSS, CVRP</p>
           </div>
         </div>
       </motion.section>
