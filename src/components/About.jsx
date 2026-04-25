@@ -7,7 +7,7 @@ const About = () => {
         <h3 className="a-header">You are not alone in this.</h3>
         <p className="a-p">
           Raising a child with a disability is one of the most profound — and
-          sometimes exhausting — journey a family can take. At New Family
+          sometimes exhausting — journeys a family can take. At New Family
           Solutions, we&apos;ve been walking alongside families like yours since
           2007.
         </p>

@@ -1,4 +1,6 @@
 import "../static/css/about-us.css";
+import { Helmet } from "react-helmet-async";
+import { pages, SITE_NAME } from "../seo.js";
 import "../static/css/sections.css";
 import ModalWrapper from "./ContactModal.jsx";
 import founderPhoto from "../static/images/Best.jpg";
@@ -46,8 +48,25 @@ const values = [
   },
 ];
 
+const { title, description, canonical, ogType } = pages.aboutUs;
+
 const AboutUs = () => {
   return (
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+      </Helmet>
+
     <div className="about-us-page">
       {/* Banner */}
       <div className="about-us-banner">
@@ -164,6 +183,7 @@ const AboutUs = () => {
         <ModalWrapper buttonLabel="Get in touch" />
       </motion.section>
     </div>
+    </>
   );
 };
 

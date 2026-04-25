@@ -39,7 +39,7 @@ const steps = [
   {
     number: "3",
     heading: "Tailored Support Plan",
-    body: "Together, we'll build a personalised plan that fits your child's needs and your family's rhythm — and we adjust it as things change.",
+    body: "Together, we'll build a personalized plan that fits your child's needs and your family's rhythm — and we adjust it as things change.",
   },
 ];
 

@@ -40,8 +40,9 @@ const Services = () => (
       Support that fits your family&apos;s needs
     </h2>
     <p className="section-sub">
-      Every family&apos;s journey is different. We offer two paths of support —
-      choose what feels right, or ask us to help you decide.
+      Every family&apos;s journey is different. All that’s needed to get started
+      is an active FSCD agreement in place for your child. We offer two paths of
+      support — choose what feels right, or ask us to help you decide.
     </p>
 
     <motion.div
@@ -58,14 +59,14 @@ const Services = () => (
         <p>
           A collaborative, multi-disciplinary team works alongside your family —
           in your home — supporting communication, daily living, social skills,
-          behvaioral challenges, and more, all coordinated in one place.
+          behavioral challenges, and more, all coordinated in one place.
         </p>
       </motion.div>
 
       <motion.div className="service-card" variants={itemVariants}>
         <span className="service-card__icon">🌱</span>
         <span className="service-card__tag">Focused support</span>
-        <h3>Behavioural &amp; Developmental Support</h3>
+        <h3>Behavioral &amp; Developmental Support</h3>
         <p>
           Focused, individualized support to help your child manage behavioral
           challenges, build confidence, and develop new skills- moving forward

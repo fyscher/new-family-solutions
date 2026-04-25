@@ -55,8 +55,18 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(400, ['error' => 'Invalid email address']);
 }
 
-// ── UPDATE THIS when the destination address is decided ──
-$to      = 'YOUR_EMAIL@example.com';
+// ── UPDATE these when addresses are confirmed ──
+$specialized = 'specialized@newfamilysolutions.com';
+$behavioural = 'behavioural@newfamilysolutions.com';
+
+if ($program === 'specialized-services') {
+    $to = $specialized;
+} elseif ($program === 'behavioural-support') {
+    $to = $behavioural;
+} else {
+    // 'unsure' or no selection — send to both
+    $to = $specialized . ', ' . $behavioural;
+}
 $subject = "New Inquiry — $firstName $lastName";
 
 $body  = "New inquiry from the New Family Solutions contact form.\n\n";

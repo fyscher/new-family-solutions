@@ -1,4 +1,6 @@
 import "../static/css/our-team.css";
+import { Helmet } from "react-helmet-async";
+import { pages, SITE_NAME } from "../seo.js";
 import "../static/css/sections.css";
 import ModalWrapper from "./ContactModal.jsx";
 import { motion } from "motion/react";
@@ -35,7 +37,7 @@ const clinicians = [
   {
     role: "Behavior",
     title: "Behavioral Consultant",
-    body: "Our Behavioral Consultants work alongside parents and caregivers to build a deeper understanding of how behavior actually works. Their focus isn't on \"fixing\" the child — it's on equipping the adults around them with insight and practical tools. When caregivers learn to recognize and manage their own emotional responses, meaningful change in the child's behavior naturally follows, making this a collaborative and empowering approach.",
+    body: "Our Behavioral Consultants work alongside parents and caregivers to build a deeper understanding of how behavior works. Their focus isn’t on ‘fixing’ the child—it’s on supporting the adults in their life with practical tools and strategies that make everyday situations more manageable. As caregivers learn to recognize and manage their own emotional responses, meaningful changes in the child’s behavior often follow, creating a more collaborative and empowering approach.",
   },
   {
     role: "Occupational Therapy",
@@ -59,8 +61,25 @@ const clinicians = [
   },
 ];
 
+const { title, description, canonical, ogType } = pages.ourTeam;
+
 const OurTeam = () => {
   return (
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+      </Helmet>
+
     <div className="our-team-page">
       {/* Banner */}
       <div className="our-team-banner">
@@ -120,6 +139,7 @@ const OurTeam = () => {
         <ModalWrapper buttonLabel="Talk to our team" />
       </motion.section>
     </div>
+    </>
   );
 };
 

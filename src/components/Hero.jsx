@@ -28,7 +28,8 @@ const Hero = () => (
       </div>
       <p className="hero-sub">
         Individualized, family-centred support for those navigating life with a
-        child of diverse abilities—at your pace, on your terms.
+        child of diverse abilities—delivered in your home, at your pace, on your
+        terms.
       </p>
       <a href="#services">
         <button className="hero-cta">Explore at your pace</button>

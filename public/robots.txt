@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://silver-parfait-f39620.netlify.app/sitemap.xml
