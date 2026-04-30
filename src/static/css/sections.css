@@ -119,6 +119,31 @@
   display: block;
 }
 
+/* ── ServiceArea ── */
+
+.service-area__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-area__pill {
+  background-color: #fff;
+  border: 1.5px solid var(--30);
+  color: var(--5b);
+  border-radius: 2rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: "Zain", sans-serif;
+  letter-spacing: 0.02em;
+}
+
 /* ── Responsive ── */
 
 @media (min-width: 1024px) {

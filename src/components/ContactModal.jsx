@@ -1,6 +1,28 @@
 import "../static/css/contact.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+
+const SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
+function loadRecaptcha() {
+  if (document.getElementById("recaptcha-script")) return;
+  const script = document.createElement("script");
+  script.id = "recaptcha-script";
+  script.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
+  script.async = true;
+  document.head.appendChild(script);
+}
+
+function getRecaptchaToken() {
+  return new Promise((resolve, reject) => {
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute(SITE_KEY, { action: "contact" })
+        .then(resolve)
+        .catch(reject);
+    });
+  });
+}
 
 const ContactModal = ({ onClose }) => {
   const [firstName, setFirstName] = useState("");
@@ -17,12 +39,16 @@ const ContactModal = ({ onClose }) => {
   const [submitStatus, setSubmitStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  useEffect(() => { loadRecaptcha(); }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitStatus("submitting");
     setErrorMessage("");
 
     try {
+      const recaptchaToken = await getRecaptchaToken();
+
       const res = await fetch("/mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -38,6 +64,7 @@ const ContactModal = ({ onClose }) => {
           email,
           contactMethod,
           botField,
+          recaptchaToken,
         }),
       });
       const json = await res.json();
@@ -76,6 +103,11 @@ const ContactModal = ({ onClose }) => {
             referral, ask a question, or explore how we can support your child
             or family — we&apos;re here to help. A member of our team will
             respond within <strong>1–2 business days</strong>.
+          </p>
+          <a href="tel:5877351713" className="modal-phone">587-735-1713</a>
+          <p className="modal-location">
+            Edmonton &middot; St. Albert &middot; Sherwood Park &middot; Leduc
+            &middot; Spruce Grove &middot; and surrounding communities
           </p>
         </div>
 

@@ -73,6 +73,32 @@
   max-width: 480px;
 }
 
+.modal-phone {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-family: "Zain", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--5a);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal-phone:hover {
+  opacity: 0.8;
+}
+
+.modal-location {
+  margin-top: 0.85rem !important;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.78rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  letter-spacing: 0.03em;
+  line-height: 1.5 !important;
+}
+
 /* ── Close button ── */
 .modal-close {
   position: absolute;

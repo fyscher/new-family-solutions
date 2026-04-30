@@ -2,6 +2,7 @@ import Hero from "./Hero.jsx";
 import About from "./About.jsx";
 import Services from "./Services.jsx";
 import HowItWorks from "./HowItWorks.jsx";
+import ServiceArea from "./ServiceArea.jsx";
 import TrustStrip from "./TrustStrip.jsx";
 import "../static/css/sections.css";
 import { Helmet } from "react-helmet-async";
@@ -40,6 +41,7 @@ const Home = () => {
         <Services />
         <HowItWorks />
         <About />
+        <ServiceArea />
         <TrustStrip />
       </main>
     </>

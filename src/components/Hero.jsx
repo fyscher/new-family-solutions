@@ -34,6 +34,7 @@ const Hero = () => (
       <a href="#services">
         <button className="hero-cta">Explore at your pace</button>
       </a>
+      <a href="tel:5877351713" className="hero-phone">587-735-1713</a>
     </motion.div>
   </div>
 );

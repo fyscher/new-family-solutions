@@ -92,6 +92,22 @@ h1 {
   transform: translateY(-2px);
 }
 
+.hero-phone {
+  display: block;
+  margin-top: 0.85rem;
+  color: rgba(215, 231, 234, 0.8);
+  font-family: "Zain", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hero-phone:hover {
+  color: var(--5a);
+}
+
 /* ── About section (home page blurb) ── */
 
 .about-blurb {

@@ -55,9 +55,33 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(400, ['error' => 'Invalid email address']);
 }
 
-// ── UPDATE these when addresses are confirmed ──
-$specialized = 'specialized@newfamilysolutions.com';
-$behavioural = 'behavioural@newfamilysolutions.com';
+// reCAPTCHA v3 verification
+$recaptchaSecret = 'update_secret_key';
+$recaptchaToken  = trim($data['recaptchaToken'] ?? '');
+
+if (empty($recaptchaToken)) {
+    respond(400, ['error' => 'Captcha token missing.']);
+}
+
+$ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+    'secret'   => $recaptchaSecret,
+    'response' => $recaptchaToken,
+]));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+$recaptchaResult = curl_exec($ch);
+curl_close($ch);
+
+$recaptchaJson = json_decode($recaptchaResult, true);
+if (!($recaptchaJson['success'] ?? false) || ($recaptchaJson['score'] ?? 0) < 0.5) {
+    respond(400, ['error' => 'Captcha verification failed. Please try again.']);
+}
+
+$specialized = 'services@newfamilysolutions.com';
+$behavioural = 'admin@newfamilysolutions.com';
+$bcc         = 'susan@newfamilysolutions.com';
 
 if ($program === 'specialized-services') {
     $to = $specialized;
@@ -98,6 +122,7 @@ if ($howHeard) {
 
 $headers  = "From: noreply@newfamilysolutions.com\r\n";
 $headers .= "Reply-To: $email\r\n";
+$headers .= "Bcc: $bcc\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
 $sent = mail($to, $subject, $body, $headers);
